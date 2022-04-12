@@ -1,0 +1,34 @@
+{
+  "name": "@hawryschuk/dao-firebase",
+  "author": "Hawryschuk, Alexander",
+  "version": "1.0.1",
+  "description": "REST.API @hawryschuk/redaction : REST-API-Server , and (2) BusinessModel(s) which persist to FireStore(FireBase-Function) or RestApi (@hawryschuk/redaction-ui)",
+  "scripts": {
+    "hawryschuk": "npm link @hawryschuk/common @hawryschuk/dao",
+    "start": "nodemon --verbose --ext ts --ignore ./functions --ignore ./dist --delay 2000ms --exec \"npm run build\"",
+    "firebase": "firebase serve",
+    "prebuild": "rm -rf dist/*",
+    "build": "tsc --outDir dist",
+    "postbuild": "hawryschuk --package-json",
+    "test": "ts-mocha --timeout 20000 *.spec.ts"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/storage": "^4.3.1",
+    "firebase-admin": "^8.9.2",
+    "firebase-functions": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.8",
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^13.7.0",
+    "chai": "^4.2.0",
+    "mocha": "^7.0.1",
+    "ts-mocha": "^6.0.0",
+    "typescript": "^3.7.5"
+  }
+}
